@@ -60,3 +60,67 @@ The project evaluates four key OS performance domains:
 ## Status
 
 Work in progress. Check `BITACORA.md` for historical development logs.
+
+
+# Retroconsole: Consola Retro Dedicada sobre Hardware Heredado
+
+Proyecto académico de la asignatura de Sistemas Operativos que convierte un PC viejo en una consola de videojuegos dedicada. En lugar de desarrollar un emulador, el enfoque se centra en diseñar, construir y medir los subsistemas del sistema operativo subyacente: un kernel de Linux personalizado y recortado, un sistema init minimalista en C (PID 1), una pila gráfica ligera y una perfilación rigurosa del rendimiento del kernel.
+
+## Especificaciones de Hardware
+
+| Componente | Detalle |
+|---|---|
+| Tarjeta Madre | Biostar H61MH (Micro-ATX, BIOS heredada) |
+| CPU | Intel Core i3-2100 (2 núcleos, 4 hilos a 3.10 GHz) |
+| Memoria RAM | 4 GB DDR3 |
+| Almacenamiento | Disco duro mecánico (HDD) de 500 GB |
+| Controles | Mando USB alámbrico |
+
+---
+
+## Arquitectura y Capas del Sistema (De abajo hacia arriba)
+
+Al encender la máquina, el flujo de arranque ejecuta la siguiente pila:
+
+| Capa | Componente | Descripción / Responsabilidad | Estado |
+|---|---|---|---|
+| **1** | **BIOS** | Inicializa el hardware y busca el dispositivo de arranque. | Firmware |
+| **2** | **GRUBC** | Cargador de arranque que pasa el kernel a la memoria. | Existente (Debian) |
+| **3** | **Kernel de Linux** | Administra CPU, memoria, disco y controladores de hardware. | **Personalizado y recortado** |
+| **4** | **Init (PID 1)** | Primer proceso en user-space; monta sistemas y gestiona el ciclo de vida. | **Desarrollado en C a medida** |
+| **5** | **Servidor Gráfico (X)** | Proporciona el entorno de ventanas X11. | Existente (X.Org) |
+| **6** | **RetroArch** | Interfaz que gestiona ventana, audio, video y lectura del mando. | Existente |
+| **7** | **Núcleo mGBA** | Backend libretro que emula los ciclos de CPU y PPU de la Game Boy. | Existente |
+| **8** | **ROM** | Archivo de cartucho de Game Boy (`.gb`). | Homebrew / Pruebas |
+
+---
+
+## Componentes Desarrollados por el Equipo
+
+### 1. Kernel Personalizado y Recortado
+* **Optimización:** Partiendo del `.config` de Debian, se eliminaron módulos innecesarios para una consola (Bluetooth, Wi-Fi, RAID/LVM, sonido USB, CIFS, NFS) para reducir huella de memoria y acelerar el arranque.
+* **Planificación:** Activación de `CONFIG_PREEMPT` para garantizar mayor interactividad bajo carga.
+
+### 2. Init Propio en C (PID 1)
+En sustitución de `systemd`, nuestro PID 1 en C ejecuta las siguientes tareas críticas:
+1. Monta los sistemas de archivos virtuales esenciales (`/proc`, `/sys`, `/dev`).
+2. Lanza el servidor gráfico y RetroArch mediante llamadas `fork()` y `exec()`.
+3. Supervisa la ejecución con `waitpid()`: si RetroArch se detiene o falla, lo reinicia automáticamente y recolecta procesos huérfanos.
+4. Gestiona las señales de apagado y reinicio del sistema.
+
+### 3. Pila de Emulación
+RetroArch interactúa con el núcleo mGBA a través de la API estándar `libretro` (`retro_run`), ejecutando la decodificación de instrucciones y el dibujado de la PPU a ~60 cuadros por segundo con un consumo mínimo de CPU en el i3-2100.
+
+---
+
+## Mediciones y Pruebas de Rendimiento
+
+El proyecto evalúa cuatro dominios clave del sistema operativo:
+* **Planificación de CPU:** Evaluación de políticas de tiempo real (`SCHED_FIFO` vs. estándar) ante la carga artificial generada con `stress-ng`.
+* **Gestión de Memoria:** Análisis de asignación de memoria virtual, fallos de página y respuesta del kernel ante situaciones límite (activación del *OOM killer*).
+* **E/S de Disco:** Pruebas comparativas de rendimiento en el disco mecánico evaluando los planificadores `bfq` y `mq-deadline` mediante la herramienta `fio`.
+* **Interrupciones y Mandos:** Trazado de la latencia desde la interrupción hardware del puerto USB hasta la lectura del evento en `/dev/input/eventX` y su procesamiento en RetroArch.
+
+## Estado
+
+Trabajo en desarrollo. Consulte el archivo `BITACORA.md` para el registro histórico de avances.
