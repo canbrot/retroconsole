@@ -76,3 +76,7 @@ La máquina virtual sirve para desarrollar y depurar. Los números finales salen
 - results: salidas de las pruebas, con fecha
 - informe: informe final
 - docs: guías por área
+
+## Recursos
+
+[Carpeta Compartida en Google Drive](https://drive.google.com/drive/folders/19EVAPyKyOJJQl7c5br0oTpZVMr9Ai-22?usp=drive_link)
