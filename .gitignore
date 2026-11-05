@@ -1,0 +1,8 @@
+linux-*/
+*.o
+bzImage
+*.ova
+*.zip
+*.gb
+*.gbc
+*.gba
