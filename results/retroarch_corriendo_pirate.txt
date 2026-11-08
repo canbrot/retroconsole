@@ -1,0 +1,5 @@
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       2.7Gi       392Mi        25Mi       1.1Gi       1.2Gi
+Swap:          4.0Gi       1.5Mi       4.0Gi
+canbrot     4659  5.9  3.2 737376 130356 pts/0   Sl+  14:24   0:02 retroarch -L /usr/lib/x86_64-linux-gnu/libretro/mgba_libretro.so /home/canbrot/roms/maxpirateeb.gb
+canbrot     4680  0.0  0.0   6596  2224 pts/1    S+   14:25   0:00 grep retroarch
