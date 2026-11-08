@@ -1,0 +1,26 @@
+6.12.107
+Startup finished in 8.291s (kernel) + 26.688s (userspace) = 34.980s 
+multi-user.target reached after 26.685s in userspace.
+12.010s systemd-journal-flush.service
+ 9.967s dev-sda1.device
+ 4.710s NetworkManager-wait-online.service
+ 4.440s systemd-udevd.service
+ 3.668s plymouth-start.service
+ 3.213s NetworkManager.service
+ 2.558s polkit.service
+ 2.555s wtmpdb-update-boot.service
+ 2.192s apparmor.service
+ 1.876s avahi-daemon.service
+ 1.852s dbus.service
+ 1.829s keyboard-setup.service
+ 1.643s ModemManager.service
+ 1.301s user@1000.service
+ 1.295s e2scrub_reap.service
+ 1.265s dev-hugepages.mount
+ 1.264s dev-mqueue.mount
+ 1.262s run-lock.mount
+ 1.261s sys-kernel-debug.mount
+ 1.256s sys-kernel-tracing.mount
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       410Mi       3.4Gi       1.2Mi       201Mi       3.4Gi
+Swap:          4.0Gi          0B       4.0Gi
