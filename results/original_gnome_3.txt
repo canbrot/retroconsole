@@ -1,0 +1,26 @@
+6.12.107+deb13-amd64
+Startup finished in 9.048s (kernel) + 49.959s (userspace) = 59.007s 
+graphical.target reached after 49.958s in userspace.
+28.201s plymouth-quit-wait.service
+16.127s fwupd.service
+ 6.387s systemd-journal-flush.service
+ 6.328s dev-sda1.device
+ 5.339s udisks2.service
+ 4.908s NetworkManager-wait-online.service
+ 4.801s packagekit.service
+ 4.402s NetworkManager.service
+ 3.924s accounts-daemon.service
+ 3.730s apparmor.service
+ 3.356s polkit.service
+ 2.915s wtmpdb-update-boot.service
+ 2.511s ModemManager.service
+ 2.494s avahi-daemon.service
+ 2.460s dbus.service
+ 2.181s switcheroo-control.service
+ 2.161s systemd-udevd.service
+ 2.105s e2scrub_reap.service
+ 2.098s networking.service
+ 2.063s plymouth-start.service
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.7Gi       1.1Gi        27Mi       1.3Gi       2.1Gi
+Swap:          4.0Gi          0B       4.0Gi
