@@ -1,0 +1,11 @@
+6.12.107
+multi-user.target
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       507Mi       3.2Gi       1.4Mi       340Mi       3.3Gi
+Swap:          4.0Gi          0B       4.0Gi
+canbrot      905  0.0  0.0   2672  1864 tty1     S+   18:42   0:00 /bin/sh /usr/bin/startx /usr/bin/retroarch -L /usr/lib/x86_64-linux-gnu/libretro/mgba_libretro.so /home/canbrot/roms/puzzleboy_jam.gb
+canbrot      920  0.0  0.0   4104  2532 tty1     S+   18:42   0:00 xinit /usr/bin/retroarch -L /usr/lib/x86_64-linux-gnu/libretro/mgba_libretro.so /home/canbrot/roms/puzzleboy_jam.gb -- /etc/X11/xinit/xserverrc :0 vt1 -keeptty -auth /tmp/serverauth.NHcrwayST6
+canbrot      929  9.0  3.2 745920 131040 tty1    Sl   18:42   0:01 /usr/bin/retroarch -L /usr/lib/x86_64-linux-gnu/libretro/mgba_libretro.so /home/canbrot/roms/puzzleboy_jam.gb
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    929 canbrot   20   0  745872 131040  88568 R   7.6   3.3   0:02.08 retroar+

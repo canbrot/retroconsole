@@ -1,0 +1,11 @@
+6.12.107
+multi-user.target
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       508Mi       3.2Gi       1.4Mi       350Mi       3.3Gi
+Swap:          4.0Gi          0B       4.0Gi
+canbrot      979  0.0  0.0   2672  1816 tty1     S+   18:44   0:00 /bin/sh /usr/bin/startx /usr/bin/retroarch -L /usr/lib/x86_64-linux-gnu/libretro/mgba_libretro.so /home/canbrot/roms/maxpirateeb.gb
+canbrot      994  0.0  0.0   4104  2468 tty1     S+   18:44   0:00 xinit /usr/bin/retroarch -L /usr/lib/x86_64-linux-gnu/libretro/mgba_libretro.so /home/canbrot/roms/maxpirateeb.gb -- /etc/X11/xinit/xserverrc :0 vt1 -keeptty -auth /tmp/serverauth.jmiFHA0jgC
+canbrot     1002  9.0  3.2 737288 130684 tty1    Rl   18:44   0:02 /usr/bin/retroarch -L /usr/lib/x86_64-linux-gnu/libretro/mgba_libretro.so /home/canbrot/roms/maxpirateeb.gb
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   1002 canbrot   20   0  737336 130684  88968 S   7.3   3.3   0:02.41 retroar+
