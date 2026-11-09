@@ -47,10 +47,10 @@ Todo se mide en la torre real, no en la máquina virtual.
 | Integrante | Parte |
 |---|---|
 | Erwin Castañeda | Init propio en C y kernel recortado, con las pruebas en el hardware real |
-| random 2 | Planificación de CPU |
-| random 3 | Gestión de memoria |
+| Joseph Doqueresana | Planificación de CPU |
+| Laura Espinosa | Gestión de memoria |
 | Mileidis Rojas | Mando, udev e interrupciones |
-| random 5 | Planificación de disco |
+| Camilo Perdomo | Planificación de disco |
 
 ## Estado
 
