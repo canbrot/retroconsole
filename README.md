@@ -49,7 +49,7 @@ Todo se mide en la torre real, no en la máquina virtual.
 | Erwin Castañeda | Init propio en C y kernel recortado, con las pruebas en el hardware real |
 | random 2 | Planificación de CPU |
 | random 3 | Gestión de memoria |
-| random 4 | Mando, udev e interrupciones |
+| Mileidis Rojas | Mando, udev e interrupciones |
 | random 5 | Planificación de disco |
 
 ## Estado
