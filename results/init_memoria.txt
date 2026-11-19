@@ -1,0 +1,8 @@
+6.12.113+deb13-amd64
+  PID   RSS    VSZ COMMAND
+    1   728   1024 myinit
+  264  7892  36784 systemd-udevd
+  413 62060 202884 Xorg
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       314Mi       3.6Gi       964Ki       128Mi       3.5Gi
+Swap:             0B          0B          0B
