@@ -1,0 +1,16 @@
+26
+Node 0, zone   Normal     78    347    220     94     44      6      1      4      0      0      0 
+28
+Node 0, zone   Normal    190    495    259    139     49      9      4      7      2      0      0 
+34
+Node 0, zone   Normal    572    583    282    154     52      9      4      7      2      0      0 
+36
+Node 0, zone   Normal   3234   2189    997    236     66      9      4      9      2      0      0 
+39
+Node 0, zone   Normal   2273   2189    997    236     66      9      4      9      2      0      0 
+42
+Node 0, zone   Normal   2273   2189    990    224     66      9      4      9      2      0      0 
+44
+Node 0, zone   Normal   3326   2211    987    233     66      9      4      9      2      0      0 
+46
+Node 0, zone   Normal   3287   2288   1018    234     68      9      4      9      2      0      0 
