@@ -1,0 +1,17 @@
+=== 6.12.107 Sun Nov 22 03:16:57 PM -05 2026 ===
+               total        used        free      shared  buff/cache   available
+Mem:            3909         586        1969           1        1674        3322
+Swap:           4076           0        4076
+=== POLITICA BASE ===
+Antes: VmLck: 0 kB VmRSS: 129252 kB VmSwap: 0 kB 
+stress-ng: info:  [14358] successful run completed in 26.01 secs
+Resultado BASE: VmSwap max (kB)=36524 | fallos mayores=8 | duracion s=27 | RetroArch vivo=si | procesos matados por OOM=0
+=== POLITICA MLOCK ===
+Antes: VmLck: 601588 kB VmRSS: 536184 kB VmSwap: 0 kB 
+stress-ng: info:  [14502] successful run completed in 25.82 secs
+Resultado MLOCK: VmSwap max (kB)=0 | fallos mayores=0 | duracion s=27 | RetroArch vivo=si | procesos matados por OOM=0
+=== POLITICA CGROUP ===
+Antes: VmLck: 0 kB VmRSS: 129840 kB VmSwap: 0 kB 
+stress-ng: info:  [14644] successful run completed in 26.23 secs
+Resultado CGROUP: VmSwap max (kB)=0 | fallos mayores=0 | duracion s=27 | RetroArch vivo=si | procesos matados por OOM=0
+=== FIN ===
