@@ -1,0 +1,16 @@
+=== Escenario SIN ESTRES: 68000 accesos ===
+marcos   FIFO    LRU  CLOCK  (fallos de pagina)
+     4  67826  67826  67826
+     8  67826  67826  67826
+    16  67826  67826  67826
+    32  67643  67735  67319
+    48   7510   2848   2962
+    64     63     63     63
+=== Escenario CON ESTRES: 78000 accesos ===
+marcos   FIFO    LRU  CLOCK  (fallos de pagina)
+     4  77826  77826  77826
+     8  77826  77826  77826
+    16  77826  77826  77826
+    32  77677  77739  77603
+    48  24943  20272  23100
+    64  20202  20202  20202
