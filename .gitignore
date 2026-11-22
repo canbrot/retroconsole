@@ -8,3 +8,4 @@ bzImage
 *.gba
 *.so
 memoria/reemplazo
+memoria/contigua

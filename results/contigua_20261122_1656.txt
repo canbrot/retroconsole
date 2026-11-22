@@ -1,0 +1,4 @@
+Simulacion asignacion contigua (512 bloques sinteticos)
+First-Fit  | fallos=1 | libre_total=167 | mayor_hueco=105 | huecos=2
+Best-Fit   | fallos=1 | libre_total=167 | mayor_hueco=142 | huecos=3
+Worst-Fit  | fallos=1 | libre_total=167 | mayor_hueco=140 | huecos=2
