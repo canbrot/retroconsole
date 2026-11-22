@@ -6,3 +6,4 @@ bzImage
 *.gb
 *.gbc
 *.gba
+*.so

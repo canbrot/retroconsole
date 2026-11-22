@@ -4,7 +4,7 @@
 DIR="$(cd "$(dirname "$0")/.." && pwd)/results"
 mkdir -p "$DIR"
 OUT="$DIR/memoria_$(date +%Y%m%d_%H%M).txt"
-if [ -z "$(swapon --show --noheadings)" ]; then
+if [ -z "$(/usr/sbin/swapon --show --noheadings)" ]; then
   echo "No hay swap activa. Aborto." ; exit 1
 fi
 {
