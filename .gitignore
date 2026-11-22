@@ -9,3 +9,4 @@ bzImage
 *.so
 memoria/reemplazo
 memoria/contigua
+memoria/contigua
