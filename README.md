@@ -65,13 +65,14 @@ Todas las mediciones son pocas corridas, así que las presentamos como indicios 
 
 ## Equipo
 
+
 | Integrante | Parte |
 |---|---|
-| Erwin Castañeda | Kernel recortado, init propio, gestión de memoria, planificación de disco, mediciones en la torre, repositorio y bitácora |
+| Erwin Castañeda | Init propio en C y kernel recortado, con las pruebas en el hardware real |
 | Joseph Doqueresana | Planificación de CPU |
-| Laura Espinosa | Apoyo en otras entregas del curso |
-| Mileidis Rojas | Apoyo en otras entregas del curso |
-| Camilo Perdomo | Apoyo en otras entregas del curso, informe |
+| Laura Espinosa | Gestión de memoria |
+| Mileidis Rojas | Mando, udev e interrupciones |
+| Camilo Perdomo | Planificación de disco |
 
 Solo Erwin tiene acceso permanente a la torre, por eso la mayoría de las mediciones las tomó él. Parte del trabajo se hizo con asistencia de una IA (Claude, de Anthropic), que propuso código y comandos; Erwin los ejecutó y verificó. Los detalles están en BITACORA.md.
 
