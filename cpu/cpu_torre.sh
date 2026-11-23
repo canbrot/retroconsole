@@ -17,7 +17,8 @@ corrida() {
   sleep 3
 }
 {
-echo "=== $(uname -r) $(date) ==="
+if systemctl is-active --quiet graphical.target; then MODO="CON GNOME (graphical.target activo)"; else MODO="MODO TEXTO (sin GNOME)"; fi
+echo "=== $(uname -r) $(date) | $MODO ==="
 corrida "normal SIN carga" normal 0
 corrida "normal CON carga (stress-ng --cpu 4)" normal 1
 corrida "nice -20 CON carga" nice 1
