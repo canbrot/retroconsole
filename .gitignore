@@ -10,3 +10,4 @@ bzImage
 memoria/reemplazo
 memoria/contigua
 memoria/contigua
+io/leer_mando
