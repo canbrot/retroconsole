@@ -1,0 +1,9 @@
+6.12.107
+  PID   RSS    VSZ COMMAND
+    1  1468   2552 myinit
+  304  8228  36804 systemd-udevd
+  421 90616 406960 Xorg
+  428 129576 671720 retroarch
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       395Mi       3.4Gi       1.4Mi       239Mi       3.4Gi
+Swap:             0B          0B          0B
