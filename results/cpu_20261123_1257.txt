@@ -1,0 +1,10 @@
+=== 6.12.107 Mon Nov 23 12:57:50 PM -05 2026 ===
+=== normal SIN carga ===
+modo=normal frames=1800 | min=48 prom=90 p99=105 max=1313 us | tarde>1ms=1
+=== normal CON carga (stress-ng --cpu 4) ===
+modo=normal frames=1800 | min=18 prom=223 p99=4624 max=13547 us | tarde>1ms=70
+=== nice -20 CON carga ===
+modo=nice   frames=1800 | min=21 prom=138 p99=3274 max=5671 us | tarde>1ms=42
+=== SCHED_FIFO 50 CON carga ===
+modo=fifo   frames=1800 | min=6 prom=15 p99=31 max=76 us | tarde>1ms=0
+=== FIN ===
