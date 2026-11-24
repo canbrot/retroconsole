@@ -1,0 +1,54 @@
+Kernel: 6.12.107 | Fecha: Tue Nov 24 06:17:57 PM -05 2026
+NAME MODEL       ROTA SCHED
+sda  ST3500418AS    1 bfq
+
+[Planificador: mq-deadline]
+Activo: none [mq-deadline] bfq 
+1) Lectura secuencial (256M, bs=128k):
+    clat (usec): min=798, max=19118, avg=1475.84, stdev=1209.49
+     lat (usec): min=798, max=19119, avg=1476.37, stdev=1209.49
+  lat (usec)   : 1000=0.78%
+  lat (msec)   : 2=84.08%, 4=13.43%, 10=1.42%, 20=0.29%
+   READ: bw=84.4MiB/s (88.5MB/s), 84.4MiB/s-84.4MiB/s (88.5MB/s-88.5MB/s), io=256MiB (268MB), run=3034-3034msec
+2) Lectura aleatoria (64M, bs=4k):
+    clat (usec): min=142, max=185108, avg=5025.86, stdev=3700.53
+     lat (usec): min=142, max=185109, avg=5026.39, stdev=3700.53
+  lat (usec)   : 250=0.81%, 500=18.29%, 750=0.47%, 1000=0.06%
+  lat (msec)   : 2=2.01%, 4=18.46%, 10=56.67%, 20=3.12%, 50=0.09%
+  lat (msec)   : 100=0.01%, 250=0.01%
+   READ: bw=795KiB/s (814kB/s), 795KiB/s-795KiB/s (814kB/s-814kB/s), io=64.0MiB (67.1MB), run=82451-82451msec
+3) Contencion 15s (lectura 4k prio=0 vs escritura 1M prio=7):
+emulador: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fondo: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+emulador: Laying out IO file (1 file / 64MiB)
+fondo: Laying out IO file (1 file / 256MiB)
+emulador: (groupid=0, jobs=1): err= 0: pid=4083: Tue Nov 24 18:19:44 2026
+    clat (usec): min=703, max=120220, avg=12938.44, stdev=20122.70
+fondo: (groupid=0, jobs=1): err= 0: pid=4084: Tue Nov 24 18:19:44 2026
+    clat (msec): min=7, max=147, avg=30.53, stdev=29.91
+   READ: bw=309KiB/s (316kB/s), 309KiB/s-309KiB/s (316kB/s-316kB/s), io=4656KiB (4768kB), run=15070-15070msec
+  WRITE: bw=32.7MiB/s (34.3MB/s), 32.7MiB/s-32.7MiB/s (34.3MB/s-34.3MB/s), io=493MiB (517MB), run=15071-15071msec
+
+[Planificador: bfq]
+Activo: none mq-deadline [bfq] 
+1) Lectura secuencial (256M, bs=128k):
+    clat (usec): min=1098, max=16536, avg=1405.69, stdev=849.24
+     lat (usec): min=1099, max=16537, avg=1406.23, stdev=849.24
+  lat (msec)   : 2=85.35%, 4=13.77%, 10=0.83%, 20=0.05%
+   READ: bw=88.6MiB/s (92.9MB/s), 88.6MiB/s-88.6MiB/s (92.9MB/s-92.9MB/s), io=256MiB (268MB), run=2890-2890msec
+2) Lectura aleatoria (64M, bs=4k):
+    clat (usec): min=132, max=150401, avg=5043.30, stdev=3576.99
+     lat (usec): min=132, max=150402, avg=5043.82, stdev=3576.99
+  lat (usec)   : 250=1.26%, 500=17.43%, 750=0.46%, 1000=0.10%
+  lat (msec)   : 2=2.09%, 4=18.70%, 10=56.65%, 20=3.19%, 50=0.11%
+  lat (msec)   : 250=0.01%
+   READ: bw=792KiB/s (811kB/s), 792KiB/s-792KiB/s (811kB/s-811kB/s), io=64.0MiB (67.1MB), run=82740-82740msec
+3) Contencion 15s (lectura 4k prio=0 vs escritura 1M prio=7):
+emulador: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fondo: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+emulador: (groupid=0, jobs=1): err= 0: pid=4111: Tue Nov 24 18:21:26 2026
+    clat (usec): min=253, max=137511, avg=8604.09, stdev=13645.96
+fondo: (groupid=0, jobs=1): err= 0: pid=4112: Tue Nov 24 18:21:26 2026
+    clat (msec): min=5, max=1035, avg=46.86, stdev=79.61
+   READ: bw=464KiB/s (476kB/s), 464KiB/s-464KiB/s (476kB/s-476kB/s), io=6968KiB (7135kB), run=15002-15002msec
+  WRITE: bw=21.3MiB/s (22.4MB/s), 21.3MiB/s-21.3MiB/s (22.4MB/s-22.4MB/s), io=320MiB (336MB), run=15007-15007msec
