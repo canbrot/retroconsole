@@ -5,6 +5,7 @@ mkdir -p /run/user/0
 chmod 700 /run/user/0
 export XDG_RUNTIME_DIR=/run/user/0
 
+# 1. Carga de modulos de hardware y planificador BFQ
 modprobe ehci_pci
 modprobe usbhid
 modprobe evdev
@@ -12,6 +13,20 @@ modprobe joydev
 modprobe xpad
 modprobe drm
 modprobe nouveau
+modprobe bfq
+
+# 2. Politica de Disco: activar BFQ en sda para evitar latencia de E/S
+if [ -w /sys/block/sda/queue/scheduler ]; then
+  echo bfq > /sys/block/sda/queue/scheduler
+fi
+
+# 3. Politica de CPU: fijar gobernador en modo performance
+for gov in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do
+  [ -w "$gov" ] && echo performance > "$gov"
+done
+
+# 4. Politica de Memoria: minimizar paginacion al disco mecanico
+sysctl -w vm.swappiness=1 >/dev/null 2>&1
 
 UDEVD=/usr/lib/systemd/systemd-udevd
 [ -x $UDEVD ] || UDEVD=/lib/systemd/systemd-udevd
@@ -25,12 +40,22 @@ mkdir -p /root/results
 ls -la /dev/input > /root/results/init_input.txt 2>&1
 cat /proc/bus/input/devices >> /root/results/init_input.txt 2>&1
 
-echo "lanzar.sh: arrancando X y menu RetroArch"
+echo "lanzar.sh: arrancando X y RetroArch en tiempo real (SCHED_FIFO)"
 (
   sleep 30
   uname -r > /root/results/init_memoria.txt
   ps -eo pid,rss,vsz,comm | awk 'NR==1 || $1==1 || $4=="Xorg" || $4=="retroarch" || $4=="systemd-udevd"' >> /root/results/init_memoria.txt
   free -h >> /root/results/init_memoria.txt
+
+  {
+    echo "=== POLITICAS APLICADAS POR PID 1 ==="
+    echo "Scheduler sda: $(cat /sys/block/sda/queue/scheduler 2>/dev/null)"
+    echo "CPU governor:  $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 2>/dev/null)"
+    echo "Swappiness:    $(cat /proc/sys/vm/swappiness 2>/dev/null)"
+    RA_PID=$(pidof retroarch)
+    [ -n "$RA_PID" ] && chrt -p "$RA_PID"
+  } > /root/results/init_tuning.txt 2>&1
 ) &
 
-exec xinit "$(which retroarch)" --appendconfig=/usr/local/etc/ra.cfg -- /usr/bin/Xorg :0 vt1 -nolisten tcp
+# 5. Arrancar RetroArch bajo planificacion de tiempo real SCHED_FIFO (prioridad 50)
+exec xinit /usr/bin/chrt -f 50 "$(which retroarch)" --appendconfig=/usr/local/etc/ra.cfg -- /usr/bin/Xorg :0 vt1 -nolisten tcp
