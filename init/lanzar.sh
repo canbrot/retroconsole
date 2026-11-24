@@ -15,17 +15,11 @@ modprobe drm
 modprobe nouveau
 modprobe bfq
 
-# 2. Politica de Disco: activar BFQ en sda para evitar latencia de E/S
-if [ -w /sys/block/sda/queue/scheduler ]; then
-  echo bfq > /sys/block/sda/queue/scheduler
-fi
-
-# 3. Politica de CPU: fijar gobernador en modo performance
+# 2. Politicas del kernel aplicadas por PID 1
+[ -w /sys/block/sda/queue/scheduler ] && echo bfq > /sys/block/sda/queue/scheduler
 for gov in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do
   [ -w "$gov" ] && echo performance > "$gov"
 done
-
-# 4. Politica de Memoria: minimizar paginacion al disco mecanico
 sysctl -w vm.swappiness=1 >/dev/null 2>&1
 
 UDEVD=/usr/lib/systemd/systemd-udevd
@@ -40,7 +34,6 @@ mkdir -p /root/results
 ls -la /dev/input > /root/results/init_input.txt 2>&1
 cat /proc/bus/input/devices >> /root/results/init_input.txt 2>&1
 
-echo "lanzar.sh: arrancando X y RetroArch en tiempo real (SCHED_FIFO)"
 (
   sleep 30
   uname -r > /root/results/init_memoria.txt
@@ -57,5 +50,5 @@ echo "lanzar.sh: arrancando X y RetroArch en tiempo real (SCHED_FIFO)"
   } > /root/results/init_tuning.txt 2>&1
 ) &
 
-# 5. Arrancar RetroArch bajo planificacion de tiempo real SCHED_FIFO (prioridad 50)
-exec xinit /usr/bin/chrt -f 50 "$(which retroarch)" --appendconfig=/usr/local/etc/ra.cfg -- /usr/bin/Xorg :0 vt1 -nolisten tcp
+# 3. Ejecutar RetroArch con SCHED_FIFO y registrar FPS + fallos de pagina al salir
+exec xinit /usr/bin/time -v -o /root/results/init_rendimiento.txt /usr/bin/chrt -f 50 "$(which retroarch)" --verbose --log-file /root/results/retroarch_fps.log --appendconfig=/usr/local/etc/ra.cfg -- /usr/bin/Xorg :0 vt1 -nolisten tcp
