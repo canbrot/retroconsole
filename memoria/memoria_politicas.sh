@@ -26,7 +26,7 @@ limpiar() {
 
 prueba() {
   NOM=$1; PRE=$2; CG=$3
-  echo "=== POLITICA $NOM ==="
+  echo "POLITICA $NOM:"
   limpiar
   xinit /usr/bin/env LD_PRELOAD="$PRE" retroarch -L "$CORE" "$ROM" \
     --appendconfig="$CFG" -- /usr/bin/Xorg :0 vt1 > /dev/null 2>&1 &
@@ -63,12 +63,12 @@ prueba() {
 }
 
 {
-echo "=== $(uname -r) $(date) ==="
+echo "$(uname -r) $(date):"
 free -m
 prueba BASE "" ""
 prueba MLOCK "$LIB" ""
 prueba CGROUP "" 1
 limpiar
-echo "=== FIN ==="
+echo "FIN:"
 } 2>&1 | tee "$OUT"
 echo "Guardado en $OUT"

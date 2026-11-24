@@ -5,7 +5,6 @@ mkdir -p /run/user/0
 chmod 700 /run/user/0
 export XDG_RUNTIME_DIR=/run/user/0
 
-# 1. Carga de modulos de hardware y planificador BFQ
 modprobe ehci_pci
 modprobe usbhid
 modprobe evdev
@@ -15,7 +14,6 @@ modprobe drm
 modprobe nouveau
 modprobe bfq
 
-# 2. Politicas del kernel aplicadas por PID 1
 [ -w /sys/block/sda/queue/scheduler ] && echo bfq > /sys/block/sda/queue/scheduler
 for gov in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do
   [ -w "$gov" ] && echo performance > "$gov"
@@ -41,7 +39,7 @@ cat /proc/bus/input/devices >> /root/results/init_input.txt 2>&1
   free -h >> /root/results/init_memoria.txt
 
   {
-    echo "=== POLITICAS APLICADAS POR PID 1 ==="
+    echo "Politicas aplicadas por PID 1:"
     echo "Scheduler sda: $(cat /sys/block/sda/queue/scheduler 2>/dev/null)"
     echo "CPU governor:  $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 2>/dev/null)"
     echo "Swappiness:    $(cat /proc/sys/vm/swappiness 2>/dev/null)"
@@ -50,5 +48,4 @@ cat /proc/bus/input/devices >> /root/results/init_input.txt 2>&1
   } > /root/results/init_tuning.txt 2>&1
 ) &
 
-# 3. Ejecutar RetroArch con SCHED_FIFO y registrar FPS + fallos de pagina al salir
 exec xinit /usr/bin/time -v -o /root/results/init_rendimiento.txt /usr/bin/chrt -f 50 "$(which retroarch)" --verbose --log-file /root/results/retroarch_fps.log --appendconfig=/usr/local/etc/ra.cfg -- /usr/bin/Xorg :0 vt1 -nolisten tcp

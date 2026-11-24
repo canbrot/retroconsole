@@ -80,7 +80,7 @@ int main(void)
     int e, m;
     for (e = 0; e < 2; e++) {
         generar(e);
-        printf("=== Escenario %s: %d accesos ===\n", e ? "CON ESTRES" : "SIN ESTRES", n);
+        printf("Escenario %s: %d accesos:\n", e ? "CON ESTRES" : "SIN ESTRES", n);
         printf("marcos   FIFO    LRU  CLOCK  (fallos de pagina)\n");
         for (m = 0; m < 6; m++)
             printf("%6d %6d %6d %6d\n", marcos[m], fifo(marcos[m]),

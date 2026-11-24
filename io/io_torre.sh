@@ -9,7 +9,7 @@ modprobe evdev || true
 [ -e "$DEV" ] || { echo "No existe $DEV"; exit 1; }
 
 {
-echo "=== E/S E INTERRUPCIONES | $(uname -r) | $(date) ==="
+echo "E/S E INTERRUPCIONES | $(uname -r) | $(date):"
 echo "--- Dispositivo USB ---"
 lsusb | grep -i -E "xbox|microsoft|gamepad|joystick" || true
 echo "--- /proc/bus/input/devices (mando) ---"
@@ -22,7 +22,7 @@ $REPO/io/leer_mando "$DEV" 25
 echo ""
 echo "--- /proc/interrupts (USB despues) ---"
 grep -E "CPU0|ehci|xhci" /proc/interrupts
-echo "=== FIN ==="
+echo "FIN:"
 } 2>&1 | tee "$OUT"
 
 chown canbrot:canbrot "$OUT"

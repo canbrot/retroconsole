@@ -1,7 +1,6 @@
 #include <sys/mman.h>
 #include <stdio.h>
 
-/* Se ejecuta al cargar la biblioteca, antes de main() */
 __attribute__((constructor))
 static void bloquear(void)
 {

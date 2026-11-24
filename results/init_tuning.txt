@@ -1,0 +1,6 @@
+Politicas aplicadas por PID 1:
+Scheduler sda: none mq-deadline [bfq] 
+CPU governor:  performance
+Swappiness:    1
+pid 443's current scheduling policy: SCHED_FIFO
+pid 443's current scheduling priority: 50

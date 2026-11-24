@@ -1,8 +1,9 @@
-6.12.113+deb13-amd64
+6.12.107
   PID   RSS    VSZ COMMAND
-    1   728   1024 myinit
-  264  7892  36784 systemd-udevd
-  413 62060 202884 Xorg
+    1  1420   2552 myinit
+  310  8656  37212 systemd-udevd
+  435 90760 406988 Xorg
+  443 125284 660924 retroarch
                total        used        free      shared  buff/cache   available
-Mem:           3.8Gi       314Mi       3.6Gi       964Ki       128Mi       3.5Gi
+Mem:           3.8Gi       405Mi       3.4Gi       1.4Mi       239Mi       3.4Gi
 Swap:             0B          0B          0B

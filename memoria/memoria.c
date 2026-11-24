@@ -24,7 +24,7 @@ void leer_meminfo(void)
     }
     fclose(f);
 
-    printf("=== Memoria del sistema (MiB) ===\n");
+    printf("Memoria del sistema (MiB):\n");
     printf("Total:       %ld\n", total / 1024);
     printf("Libre:       %ld\n", libre / 1024);
     printf("Disponible:  %ld\n", disp / 1024);
@@ -56,7 +56,7 @@ void leer_proceso(int pid)
     }
     fclose(f);
 
-    printf("=== Proceso %d (%s) ===\n", pid, nombre);
+    printf("Proceso %d (%s):\n", pid, nombre);
     printf("VSZ (reservada): %ld kB\n", vsz);
     printf("RSS (real):      %ld kB\n", rss);
 }
