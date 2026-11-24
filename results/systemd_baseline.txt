@@ -1,0 +1,7 @@
+6.12.107
+graphical.target
+    PID   RSS    VSZ COMMAND
+      1 14712  24284 systemd
+               total        used        free      shared  buff/cache   available
+Mem:            3909        2613         115          23        1326        1295
+Swap:           4076           6        4070
