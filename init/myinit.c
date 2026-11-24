@@ -84,6 +84,7 @@ static pid_t lanzar_consola(void)
 
 int main(void)
 {
+    mount(NULL, "/", NULL, MS_REMOUNT, NULL);
     mount("proc", "/proc", "proc", 0, NULL);
     mount("sysfs", "/sys", "sysfs", 0, NULL);
     mount("devtmpfs", "/dev", "devtmpfs", 0, NULL);
