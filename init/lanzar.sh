@@ -13,6 +13,8 @@ modprobe xpad
 modprobe drm
 modprobe nouveau
 modprobe bfq
+modprobe snd_hda_intel
+modprobe snd_pcm
 
 [ -w /sys/block/sda/queue/scheduler ] && echo bfq > /sys/block/sda/queue/scheduler
 for gov in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do
@@ -43,6 +45,7 @@ cat /proc/bus/input/devices >> /root/results/init_input.txt 2>&1
     echo "Scheduler sda: $(cat /sys/block/sda/queue/scheduler 2>/dev/null)"
     echo "CPU governor:  $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 2>/dev/null)"
     echo "Swappiness:    $(cat /proc/sys/vm/swappiness 2>/dev/null)"
+    echo "USB ROMs:      $(mount | grep '/home/canbrot/roms/usb' || echo 'ninguna conectada')"
     RA_PID=$(pidof retroarch)
     [ -n "$RA_PID" ] && chrt -p "$RA_PID"
   } > /root/results/init_tuning.txt 2>&1
