@@ -1,0 +1,18 @@
+Dispositivos de entrada:
+/dev/input/event0  Power Button
+/dev/input/event1  Power Button
+/dev/input/event2  SIGMACHIP USB Mouse
+/dev/input/event3  Usb KeyBoard Usb KeyBoard
+/dev/input/event4  Usb KeyBoard Usb KeyBoard Consumer Control
+/dev/input/event5  Usb KeyBoard Usb KeyBoard System Control
+/dev/input/event6  PC Speaker
+/dev/input/event7  HDA NVidia HDMI/DP,pcm=3
+/dev/input/event8  HDA NVidia HDMI/DP,pcm=7
+/dev/input/event9  HDA NVidia HDMI/DP,pcm=8
+/dev/input/event10  HDA NVidia HDMI/DP,pcm=9
+/dev/input/event11  HDA Intel PCH Rear Mic
+/dev/input/event12  HDA Intel PCH Front Mic
+/dev/input/event13  HDA Intel PCH Line
+/dev/input/event14  HDA Intel PCH Line Out
+/dev/input/event15  HDA Intel PCH Front Headphone
+/dev/input/event16  Microsoft X-Box One pad

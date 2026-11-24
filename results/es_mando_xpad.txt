@@ -1,0 +1,42 @@
+6.12.107
+xpad                   49152  0
+ff_memless             16384  1 xpad
+usbcore               409600  6 ehci_pci,usbhid,xpad,usb_storage,ehci_hcd,uas
+Leyendo /dev/input/event16 (Microsoft X-Box One pad) durante 10 s. Pulsa botones.
+1795390457.738767 tipo=3 codigo=0 valor=-31971
+1795390457.738767 tipo=3 codigo=1 valor=20269
+1795390457.738767 tipo=3 codigo=4 valor=19239
+1795390457.742765 tipo=3 codigo=0 valor=-31404
+1795390457.742765 tipo=3 codigo=1 valor=21460
+1795390457.742765 tipo=3 codigo=3 valor=32371
+1795390457.742765 tipo=3 codigo=4 valor=19501
+1795390457.750764 tipo=3 codigo=0 valor=295
+1795390457.750764 tipo=3 codigo=1 valor=-2293
+1795390457.750764 tipo=3 codigo=3 valor=-259
+1795390457.750764 tipo=3 codigo=4 valor=156
+1795390460.702609 tipo=3 codigo=1 valor=-2234
+1795390461.074583 tipo=1 codigo=307 valor=1
+1795390461.270562 tipo=1 codigo=307 valor=0
+1795390461.478561 tipo=1 codigo=304 valor=1
+1795390461.690543 tipo=1 codigo=304 valor=0
+1795390461.874529 tipo=1 codigo=305 valor=1
+1795390462.102511 tipo=1 codigo=305 valor=0
+1795390462.238509 tipo=1 codigo=308 valor=1
+1795390462.430447 tipo=1 codigo=308 valor=0
+1795390462.650487 tipo=1 codigo=307 valor=1
+1795390462.826482 tipo=1 codigo=307 valor=0
+1795390462.974471 tipo=1 codigo=304 valor=1
+1795390463.134460 tipo=1 codigo=304 valor=0
+1795390463.282456 tipo=1 codigo=305 valor=1
+1795390463.458449 tipo=1 codigo=305 valor=0
+1795390463.586440 tipo=1 codigo=308 valor=1
+1795390463.766423 tipo=1 codigo=308 valor=0
+1795390463.894417 tipo=1 codigo=307 valor=1
+1795390464.066411 tipo=1 codigo=307 valor=0
+1795390464.218399 tipo=1 codigo=304 valor=1
+1795390464.362389 tipo=1 codigo=304 valor=0
+1795390464.494382 tipo=1 codigo=305 valor=1
+1795390464.638374 tipo=1 codigo=305 valor=0
+1795390464.750365 tipo=1 codigo=308 valor=1
+1795390464.922357 tipo=1 codigo=308 valor=0
+Resumen: eventos=46 botones_pulsados=12 eventos_de_ejes=22 en 10 s
